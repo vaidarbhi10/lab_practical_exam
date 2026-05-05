@@ -6,7 +6,7 @@ const {
     addStudent,
     updateStudent,
     deleteStudent
-} = require('../src/controllers/studentController');
+} = require('../controllers/studentController');
 
 // Routes
 router.get('/', getStudents);

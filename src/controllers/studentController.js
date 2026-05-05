@@ -1,8 +1,7 @@
-// In-memory data
 let students = [];
 let currentId = 1;
 
-// Validation function
+// Validation
 function validateStudent(data) {
     if (!data.name || typeof data.name !== 'string') {
         return "Name is required and must be a string";
@@ -13,12 +12,12 @@ function validateStudent(data) {
     return null;
 }
 
-// GET /students
+// GET all students
 exports.getStudents = (req, res) => {
     res.status(200).json(students);
 };
 
-// POST /students
+// POST add student
 exports.addStudent = (req, res) => {
     const error = validateStudent(req.body);
     if (error) {
@@ -35,7 +34,7 @@ exports.addStudent = (req, res) => {
     res.status(201).json(newStudent);
 };
 
-// PUT /students/:id
+// PUT update student
 exports.updateStudent = (req, res) => {
     const id = parseInt(req.params.id);
 
@@ -55,7 +54,7 @@ exports.updateStudent = (req, res) => {
     res.status(200).json(student);
 };
 
-// DELETE /students/:id
+// DELETE student
 exports.deleteStudent = (req, res) => {
     const id = parseInt(req.params.id);
 
